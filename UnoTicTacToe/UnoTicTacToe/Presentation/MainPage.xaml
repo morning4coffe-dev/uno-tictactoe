@@ -1,0 +1,43 @@
+﻿<Page x:Class="UnoTicTacToe.Presentation.MainPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:local="using:UnoTicTacToe.Presentation"
+      xmlns:uen="using:Uno.Extensions.Navigation.UI"
+      xmlns:utu="using:Uno.Toolkit.UI"
+      xmlns:um="using:Uno.Material"
+      NavigationCacheMode="Required"
+      Background="{ThemeResource BackgroundBrush}">
+
+  <Grid utu:SafeArea.Insets="VisibleBounds">
+    <Grid.RowDefinitions>
+      <RowDefinition Height="Auto"/>
+      <RowDefinition/>
+      <RowDefinition/>
+    </Grid.RowDefinitions>
+    <utu:NavigationBar Content="{Binding Title}"/>
+
+    <Button Content="X"
+            Grid.Row="1"
+            Margin="20"
+            HorizontalAlignment="Stretch"
+            VerticalAlignment="Stretch"
+            AutomationProperties.AutomationId="SecondPageButton"
+            Command="{Binding GoToSecond}">
+      <Button.CommandParameter>
+        <x:Boolean>True</x:Boolean>
+      </Button.CommandParameter>
+    </Button>
+    <Button Content="O"
+            Grid.Row="2"
+            Margin="20"
+            HorizontalAlignment="Stretch"
+            VerticalAlignment="Stretch"
+            AutomationProperties.AutomationId="SecondPageButton"
+            Command="{Binding GoToSecond}">
+      <Button.CommandParameter>
+        <x:Boolean>False</x:Boolean>
+      </Button.CommandParameter>
+    </Button>
+
+  </Grid>
+</Page>

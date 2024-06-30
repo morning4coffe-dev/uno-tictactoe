@@ -1,0 +1,10 @@
+{
+  "background_color": "#ffffff",
+  "description": "UnoTicTacToe",
+  "display": "standalone",
+  "name": "UnoTicTacToe",
+  "short_name": "UnoTicTacToe",
+  "start_url": "/index.html",
+  "theme_color": "#ffffff",
+  "scope": "/"
+}

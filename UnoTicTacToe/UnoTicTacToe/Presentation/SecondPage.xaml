@@ -1,0 +1,56 @@
+﻿<Page x:Class="UnoTicTacToe.Presentation.SecondPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:local="using:UnoTicTacToe.Presentation"
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+      xmlns:uen="using:Uno.Extensions.Navigation.UI"
+      xmlns:utu="using:Uno.Toolkit.UI"
+      xmlns:um="using:Uno.Material"
+      Background="{ThemeResource BackgroundBrush}">
+
+  <Grid utu:SafeArea.Insets="VisibleBounds">
+    <Grid.RowDefinitions>
+      <RowDefinition Height="Auto" />
+      <RowDefinition />
+    </Grid.RowDefinitions>
+    <utu:NavigationBar Content="Second Page">
+      <utu:NavigationBar.MainCommand>
+        <AppBarButton>
+          <AppBarButton.Icon>
+            <BitmapIcon UriSource="ms-appx:///Assets/Images/back.png" />
+          </AppBarButton.Icon>
+        </AppBarButton>
+      </utu:NavigationBar.MainCommand>
+    </utu:NavigationBar>
+    <StackPanel Grid.Row="1"
+                HorizontalAlignment="Center"
+                VerticalAlignment="Center">
+      <TextBlock Text="{Binding CurrentPlayer, Mode=OneWay}"
+                Style="{StaticResource DisplayMedium}"
+                 HorizontalAlignment="Center"
+                 VerticalAlignment="Center"
+                 Margin="8" />
+
+      <ItemsRepeater ItemsSource="{Binding Cells, Mode=OneWay}"
+                     VerticalAlignment="Center"
+                     HorizontalAlignment="Center">
+        <ItemsRepeater.Layout>
+          <UniformGridLayout MaximumRowsOrColumns="3"
+                             MinColumnSpacing="20"
+                             MinRowSpacing="20"
+                             Orientation="Vertical" />
+        </ItemsRepeater.Layout>
+        <ItemsRepeater.ItemTemplate>
+          <DataTemplate x:DataType="local:GameCell">
+            <Button Content="{x:Bind Content, Mode=OneWay}"
+                    Command="{utu:AncestorBinding AncestorType=StackPanel, Path=DataContext.CellCommand}"
+                    CommandParameter="{x:Bind}"
+                    Padding="50" />
+          </DataTemplate>
+        </ItemsRepeater.ItemTemplate>
+      </ItemsRepeater>
+    </StackPanel>
+
+  </Grid>
+</Page>
